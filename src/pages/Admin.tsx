@@ -6,6 +6,7 @@ import AdminProductForm from "@/components/admin/AdminProductForm";
 import AdminCategoryForm from "@/components/admin/AdminCategoryForm";
 import AdminProductList from "@/components/admin/AdminProductList";
 import AdminCategoryList from "@/components/admin/AdminCategoryList";
+import BulkProductCreation from "@/components/admin/BulkProductCreation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -22,6 +23,7 @@ const Admin = () => {
           <TabsList className="mb-6">
             <TabsTrigger value="products">Продукти</TabsTrigger>
             <TabsTrigger value="categories">Категории</TabsTrigger>
+            <TabsTrigger value="bulk">Масово добавяне</TabsTrigger>
           </TabsList>
           
           <TabsContent value="products">
@@ -72,6 +74,17 @@ const Admin = () => {
                 </Card>
               </div>
             </div>
+          </TabsContent>
+          
+          <TabsContent value="bulk">
+            <Card>
+              <CardHeader>
+                <CardTitle>Масово добавяне на продукти</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <BulkProductCreation />
+              </CardContent>
+            </Card>
           </TabsContent>
         </Tabs>
       </main>
