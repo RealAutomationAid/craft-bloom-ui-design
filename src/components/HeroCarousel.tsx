@@ -8,7 +8,7 @@ const slides = [
     id: 1,
     title: "Нова колекция скрапбукинг материали",
     description: "Вдъхновете се с нашите ексклузивни продукти за творчество",
-    image: "/lovable-uploads/6a3c3600-a5ad-43f7-803b-639e75254909.png",
+    image: "/lovable-uploads/f965e4e3-0ee1-4f18-acd5-8c0397d7a158.png",
     bgColor: "bg-gradient-to-r from-rose-100 to-teal-100",
     link: "/categories/scrapbooking",
   },
@@ -74,7 +74,7 @@ const HeroCarousel = () => {
                 <img 
                   src={slide.image}
                   alt={slide.title}
-                  className="max-h-[250px] md:max-h-[300px] lg:max-h-[400px] object-contain"
+                  className={`${slide.id === 1 ? 'max-h-[200px]' : 'max-h-[250px]'} md:max-h-[300px] lg:max-h-[400px] object-contain`}
                 />
               </div>
             </div>

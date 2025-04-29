@@ -5,11 +5,11 @@ const Logo = () => {
   return (
     <Link to="/" className="flex items-center">
       <img 
-        src="/lovable-uploads/c8cafdf0-3b3f-4acd-a81b-a64597507bad.png" 
-        alt="Крафт Блум Лого" 
-        className="h-10 mr-2"
+        src="/lovable-uploads/f965e4e3-0ee1-4f18-acd5-8c0397d7a158.png" 
+        alt="LuxArt Logo" 
+        className="h-12 mr-2"
       />
-      <span className="font-serif text-lg font-bold text-primary">КрафтБлум</span>
+      <span className="font-serif text-lg font-bold text-primary sr-only">LuxArt</span>
     </Link>
   );
 };

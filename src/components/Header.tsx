@@ -132,7 +132,10 @@ const Header = () => {
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="lg:hidden bg-white border-b shadow-sm animate-fade-in">
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto px-4 py-4">
+            <div className="flex justify-center mb-4">
+              <Logo />
+            </div>
             <ul className="py-2">
               <li>
                 <Link 
