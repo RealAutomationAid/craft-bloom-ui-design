@@ -70,7 +70,7 @@ const AdminCategoryForm = () => {
             <SelectValue placeholder="Избери родителска категория" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="">-- Няма родителска категория --</SelectItem>
+            <SelectItem value="none">-- Няма родителска категория --</SelectItem>
             {dummyCategories.map((category) => (
               <SelectItem key={category.id} value={category.id}>{category.name}</SelectItem>
             ))}
