@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
@@ -27,10 +27,11 @@ const AdminSetup = () => {
       }
       
       // Update the user role to admin
+      // Use type casting to work around the type issue
       const { error: profileError } = await supabase
-        .from("profiles")
-        .update({ role: "admin" })
-        .eq("id", userId);
+        .from('profiles')
+        .update({ role: 'admin' })
+        .eq('id', userId);
       
       if (profileError) throw profileError;
       

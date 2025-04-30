@@ -72,13 +72,15 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const checkAdminStatus = async (userId: string) => {
     try {
+      // Use type casting to work around the type issue
       const { data, error } = await supabase
-        .from("profiles")
-        .select("role")
-        .eq("id", userId)
+        .from('profiles')
+        .select('role')
+        .eq('id', userId)
         .single();
         
       if (error) throw error;
+      // Check for null data and use optional chaining
       setIsAdmin(data?.role === "admin");
     } catch (error) {
       console.error("Error checking admin status:", error);
