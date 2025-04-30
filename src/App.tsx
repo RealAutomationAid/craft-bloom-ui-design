@@ -17,6 +17,8 @@ import NotFound from "./pages/NotFound";
 import Auth from "./pages/Auth";
 import AuthCallback from "./pages/AuthCallback";
 import AdminSetup from "./pages/AdminSetup";
+import Stores from "./pages/Stores";
+import NewProducts from "./pages/NewProducts";
 
 const queryClient = new QueryClient();
 
@@ -37,6 +39,8 @@ const App = () => (
             <Route path="/auth" element={<Auth />} />
             <Route path="/auth/callback" element={<AuthCallback />} />
             <Route path="/admin-setup" element={<AdminSetup />} />
+            <Route path="/stores" element={<Stores />} />
+            <Route path="/new" element={<NewProducts />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

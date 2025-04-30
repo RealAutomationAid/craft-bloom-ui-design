@@ -7,8 +7,11 @@ import AdminCategoryForm from "@/components/admin/AdminCategoryForm";
 import AdminProductList from "@/components/admin/AdminProductList";
 import AdminCategoryList from "@/components/admin/AdminCategoryList";
 import BulkProductCreation from "@/components/admin/BulkProductCreation";
+import AdminStoreForm from "@/components/admin/AdminStoreForm";
+import AdminStoreList from "@/components/admin/AdminStoreList";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import AdminNewProductsSelector from "@/components/admin/AdminNewProductsSelector";
 
 const Admin = () => {
   const [activeTab, setActiveTab] = useState("products");
@@ -23,6 +26,8 @@ const Admin = () => {
           <TabsList className="mb-6">
             <TabsTrigger value="products">Продукти</TabsTrigger>
             <TabsTrigger value="categories">Категории</TabsTrigger>
+            <TabsTrigger value="stores">Магазини</TabsTrigger>
+            <TabsTrigger value="new_products">Нови Стоки</TabsTrigger>
             <TabsTrigger value="bulk">Масово добавяне</TabsTrigger>
           </TabsList>
           
@@ -74,6 +79,42 @@ const Admin = () => {
                 </Card>
               </div>
             </div>
+          </TabsContent>
+          
+          <TabsContent value="stores">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              <div className="lg:col-span-1">
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Добави нов магазин</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <AdminStoreForm />
+                  </CardContent>
+                </Card>
+              </div>
+              <div className="lg:col-span-2">
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Всички магазини</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <AdminStoreList />
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </TabsContent>
+          
+          <TabsContent value="new_products">
+            <Card>
+              <CardHeader>
+                <CardTitle>Управление на нови стоки</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <AdminNewProductsSelector />
+              </CardContent>
+            </Card>
           </TabsContent>
           
           <TabsContent value="bulk">

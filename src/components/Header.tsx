@@ -137,11 +137,11 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Main Navigation */}
+      {/* Main Navigation - Centered */}
       <nav className="bg-white border-b shadow-sm">
         <div className="container mx-auto px-4">
-          <div className="hidden lg:flex items-center justify-between">
-            <ul className="flex space-x-8 font-bulgarian">
+          <div className="hidden lg:flex items-center justify-center">
+            <ul className="flex space-x-12 font-bulgarian">
               <li>
                 <Link to="/categories" className="block py-4 font-medium hover:text-primary">
                   КАТЕГОРИИ
@@ -165,11 +165,6 @@ const Header = () => {
               <li>
                 <Link to="/stores" className="block py-4 font-medium hover:text-primary">
                   МАГАЗИНИ
-                </Link>
-              </li>
-              <li>
-                <Link to="/blog" className="block py-4 font-medium hover:text-primary">
-                  БЛОГ
                 </Link>
               </li>
             </ul>
@@ -224,19 +219,10 @@ const Header = () => {
               <li>
                 <Link 
                   to="/stores" 
-                  className="block py-3 border-b border-gray-100 font-medium"
+                  className="block py-3 border-gray-100 font-medium"
                   onClick={toggleMenu}
                 >
                   МАГАЗИНИ
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/blog" 
-                  className="block py-3 font-medium"
-                  onClick={toggleMenu}
-                >
-                  БЛОГ
                 </Link>
               </li>
               {user ? (
