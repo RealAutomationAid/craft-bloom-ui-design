@@ -72,9 +72,9 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const checkAdminStatus = async (userId: string) => {
     try {
-      // Using 'any' as a more explicit type assertion to bypass type checking
-      const { data, error } = await (supabase
-        .from('profiles') as any)
+      // Type safe query now that the profiles table exists in the schema
+      const { data, error } = await supabase
+        .from('profiles')
         .select('role')
         .eq('id', userId)
         .single();

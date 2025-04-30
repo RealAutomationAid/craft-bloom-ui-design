@@ -26,10 +26,9 @@ const AdminSetup = () => {
         throw new Error("User ID not found after registration");
       }
       
-      // Update the user role to admin
-      // Using 'any' as a more explicit type assertion to bypass type checking
-      const { error: profileError } = await (supabase
-        .from('profiles') as any)
+      // Update the user role to admin - now with proper typing
+      const { error: profileError } = await supabase
+        .from('profiles')
         .update({ role: 'admin' })
         .eq('id', userId);
       
