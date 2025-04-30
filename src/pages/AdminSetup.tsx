@@ -27,7 +27,7 @@ const AdminSetup = () => {
       }
       
       // Update the user role to admin
-      // Using 'any' type to bypass type checking since database schema types don't include the profiles table yet
+      // Using 'any' as a more explicit type assertion to bypass type checking
       const { error: profileError } = await (supabase
         .from('profiles') as any)
         .update({ role: 'admin' })

@@ -72,7 +72,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const checkAdminStatus = async (userId: string) => {
     try {
-      // Using 'any' to bypass type checking since the database schema types don't include the profiles table yet
+      // Using 'any' as a more explicit type assertion to bypass type checking
       const { data, error } = await (supabase
         .from('profiles') as any)
         .select('role')
