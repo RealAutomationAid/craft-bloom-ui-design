@@ -1,18 +1,34 @@
 
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Search, ShoppingCart, Menu, X, User } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { Search, ShoppingCart, Menu, X, User, LogOut } from "lucide-react";
 import Logo from "./Logo";
 import FreeShippingBanner from "./FreeShippingBanner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useAuth } from "@/contexts/AuthContext";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [cartCount, setCartCount] = useState(0);
+  const { user, isAdmin, signOut } = useAuth();
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleSignOut = async () => {
+    await signOut();
+    navigate("/");
   };
 
   return (
@@ -59,9 +75,41 @@ const Header = () => {
 
             {/* User & Cart */}
             <div className="flex items-center space-x-4">
-              <Link to="/account" className="text-gray-700 hover:text-primary">
-                <User className="h-6 w-6" />
-              </Link>
+              {user ? (
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="ghost" size="icon">
+                      <User className="h-6 w-6" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end">
+                    <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                    {isAdmin && (
+                      <>
+                        <DropdownMenuItem onClick={() => navigate("/admin")}>
+                          Admin Dashboard
+                        </DropdownMenuItem>
+                        <DropdownMenuSeparator />
+                      </>
+                    )}
+                    <DropdownMenuItem onClick={() => navigate("/profile")}>
+                      Profile
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => navigate("/orders")}>
+                      Orders
+                    </DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem onClick={handleSignOut}>
+                      <LogOut className="h-4 w-4 mr-2" />
+                      Logout
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              ) : (
+                <Link to="/auth" className="text-gray-700 hover:text-primary">
+                  <User className="h-6 w-6" />
+                </Link>
+              )}
               <Link to="/cart" className="text-gray-700 hover:text-primary relative">
                 <ShoppingCart className="h-6 w-6" />
                 {cartCount > 0 && (
@@ -191,6 +239,51 @@ const Header = () => {
                   БЛОГ
                 </Link>
               </li>
+              {user ? (
+                <>
+                  <li>
+                    <Link 
+                      to="/profile" 
+                      className="block py-3 border-t border-b border-gray-100 font-medium"
+                      onClick={toggleMenu}
+                    >
+                      My Account
+                    </Link>
+                  </li>
+                  {isAdmin && (
+                    <li>
+                      <Link 
+                        to="/admin" 
+                        className="block py-3 border-b border-gray-100 font-medium"
+                        onClick={toggleMenu}
+                      >
+                        Admin Dashboard
+                      </Link>
+                    </li>
+                  )}
+                  <li>
+                    <button 
+                      className="block py-3 border-b border-gray-100 font-medium w-full text-left"
+                      onClick={() => {
+                        handleSignOut();
+                        toggleMenu();
+                      }}
+                    >
+                      Logout
+                    </button>
+                  </li>
+                </>
+              ) : (
+                <li>
+                  <Link 
+                    to="/auth" 
+                    className="block py-3 border-t border-gray-100 font-medium"
+                    onClick={toggleMenu}
+                  >
+                    Login / Register
+                  </Link>
+                </li>
+              )}
             </ul>
           </div>
         </div>
