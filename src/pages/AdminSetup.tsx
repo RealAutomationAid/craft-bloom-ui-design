@@ -27,9 +27,9 @@ const AdminSetup = () => {
       }
       
       // Update the user role to admin
-      // Use type casting to work around the type issue
-      const { error: profileError } = await supabase
-        .from('profiles')
+      // Using 'any' type to bypass type checking since database schema types don't include the profiles table yet
+      const { error: profileError } = await (supabase
+        .from('profiles') as any)
         .update({ role: 'admin' })
         .eq('id', userId);
       

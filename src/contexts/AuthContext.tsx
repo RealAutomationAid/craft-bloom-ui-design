@@ -72,16 +72,17 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const checkAdminStatus = async (userId: string) => {
     try {
-      // Use type casting to work around the type issue
-      const { data, error } = await supabase
-        .from('profiles')
+      // Using 'any' to bypass type checking since the database schema types don't include the profiles table yet
+      const { data, error } = await (supabase
+        .from('profiles') as any)
         .select('role')
         .eq('id', userId)
         .single();
         
       if (error) throw error;
-      // Check for null data and use optional chaining
-      setIsAdmin(data?.role === "admin");
+      
+      // Explicitly check for null and undefined before accessing properties
+      setIsAdmin(data && data.role === "admin");
     } catch (error) {
       console.error("Error checking admin status:", error);
       setIsAdmin(false);
