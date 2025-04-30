@@ -66,7 +66,8 @@ export default {
 			},
 			fontFamily: {
 				serif: ['Playfair Display', 'serif'],
-				sans: ['Inter', 'sans-serif'],
+				sans: ['Inter', 'Comfortaa', 'sans-serif'],
+				bulgarian: ['Comfortaa', 'cursive'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

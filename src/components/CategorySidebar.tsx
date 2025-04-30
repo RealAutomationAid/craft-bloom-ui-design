@@ -25,7 +25,7 @@ const CategoryItem = ({ category }: { category: Category }) => {
       <div className="flex items-center justify-between py-3">
         <Link 
           to={`/categories/${category.slug}`}
-          className="flex-1 hover:text-primary"
+          className="flex-1 hover:text-primary font-bulgarian"
         >
           {category.name} <span className="text-sm text-gray-400">({category.count})</span>
         </Link>
@@ -55,13 +55,13 @@ const CategoryItem = ({ category }: { category: Category }) => {
 
 const CategorySidebar = ({ categories }: CategorySidebarProps) => {
   return (
-    <aside className="bg-white rounded-lg shadow-sm border border-gray-100">
-      <div className="bg-primary text-white p-4 rounded-t-lg">
+    <aside className="bg-white rounded-lg shadow-sm border border-gray-100 w-full max-w-xs mx-auto">
+      <div className="bg-primary text-white p-4 rounded-t-lg text-center">
         <h2 className="font-serif text-xl font-bold">Категории</h2>
       </div>
       
       <nav className="p-4">
-        <ul>
+        <ul className="font-bulgarian">
           {categories.map((category) => (
             <CategoryItem key={category.id} category={category} />
           ))}
@@ -69,21 +69,21 @@ const CategorySidebar = ({ categories }: CategorySidebarProps) => {
       </nav>
       
       <div className="p-4 bg-gray-50 rounded-b-lg">
-        <h3 className="font-medium mb-3">Бързи връзки</h3>
-        <ul className="space-y-2">
+        <h3 className="font-medium mb-3 text-center">Бързи връзки</h3>
+        <ul className="space-y-2 font-bulgarian">
           <li>
-            <Link to="/sale" className="text-sm hover:text-primary flex items-center">
-              <span className="badge badge-sale mr-2">Sale</span>
-              Промоции
+            <Link to="/sale" className="text-sm hover:text-primary flex items-center justify-between">
+              <span>Промоции</span>
+              <span className="badge badge-sale">Sale</span>
             </Link>
           </li>
           <li>
-            <Link to="/new" className="text-sm hover:text-primary flex items-center">
-              <span className="badge badge-new mr-2">New</span>
-              Нови продукти
+            <Link to="/new" className="text-sm hover:text-primary flex items-center justify-between">
+              <span>Нови продукти</span>
+              <span className="badge badge-new">New</span>
             </Link>
           </li>
-          <li>
+          <li className="text-center">
             <Link to="/favorites" className="text-sm hover:text-primary">
               Любими продукти
             </Link>

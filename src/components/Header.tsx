@@ -49,7 +49,7 @@ const Header = () => {
                 <Input 
                   type="text" 
                   placeholder="Търси от 30 000 стоки..." 
-                  className="w-full pl-4 pr-10"
+                  className="w-full pl-4 pr-10 font-bulgarian"
                 />
                 <button className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-primary">
                   <Search className="h-5 w-5" />
@@ -79,7 +79,7 @@ const Header = () => {
               <Input 
                 type="text" 
                 placeholder="Търси от 30 000 стоки..." 
-                className="w-full pl-4 pr-10"
+                className="w-full pl-4 pr-10 font-bulgarian"
               />
               <button className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-primary">
                 <Search className="h-5 w-5" />
@@ -93,7 +93,7 @@ const Header = () => {
       <nav className="bg-white border-b shadow-sm">
         <div className="container mx-auto px-4">
           <div className="hidden lg:flex items-center justify-between">
-            <ul className="flex space-x-8">
+            <ul className="flex space-x-8 font-bulgarian">
               <li>
                 <Link to="/categories" className="block py-4 font-medium hover:text-primary">
                   КАТЕГОРИИ
@@ -136,7 +136,7 @@ const Header = () => {
             <div className="flex justify-center mb-4">
               <Logo />
             </div>
-            <ul className="py-2">
+            <ul className="py-2 font-bulgarian">
               <li>
                 <Link 
                   to="/categories" 

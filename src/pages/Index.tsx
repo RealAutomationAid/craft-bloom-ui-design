@@ -225,7 +225,6 @@ const Index = () => {
 
   return (
     <>
-      <FreeShippingBanner />
       <Header />
 
       <SidebarProvider>

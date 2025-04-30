@@ -50,7 +50,7 @@ const HeroCarousel = () => {
   }, [currentSlide]);
 
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative overflow-hidden w-full">
       <div 
         className="flex transition-transform duration-500 ease-out h-[300px] md:h-[400px] lg:h-[500px]"
         style={{ transform: `translateX(-${currentSlide * 100}%)` }}
@@ -62,10 +62,10 @@ const HeroCarousel = () => {
           >
             <div className="container px-4 grid md:grid-cols-2 gap-8 items-center">
               <div className="text-center md:text-left space-y-4 md:order-1 order-2">
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif font-bold">{slide.title}</h2>
-                <p className="text-lg opacity-75">{slide.description}</p>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif font-bold font-bulgarian">{slide.title}</h2>
+                <p className="text-lg opacity-75 font-bulgarian">{slide.description}</p>
                 <Button asChild>
-                  <a href={slide.link} className="mt-4 inline-block">
+                  <a href={slide.link} className="mt-4 inline-block font-bulgarian">
                     Разгледай сега
                   </a>
                 </Button>
